@@ -6,12 +6,6 @@ let customerId = 0;
 let mealId = 0;
 let deliveryId = 0;
 
-function arrayRemoveDuplicates(arr){
-    return arr.filter(function(elem, index, self) {
-        return index == self.indexOf(elem);
-    });
-}
-
 class Neighborhood {
   constructor (name) {
     this.name = name;
@@ -29,7 +23,7 @@ class Neighborhood {
 
   meals() {
     let m = this.deliveries().map( delivery => delivery.meal());
-    return arrayRemoveDuplicates(m);
+    return new Set(m);  // Set will remove duplicates
   }
 }
 
