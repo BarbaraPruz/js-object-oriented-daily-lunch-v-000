@@ -23,7 +23,7 @@ class Neighborhood {
 
   meals() {
     let m = this.deliveries().map( delivery => delivery.meal());
-    return new Set(m);  // Set will remove duplicates
+    return [...new Set(m)];// Set will remove duplicates
   }
 }
 
@@ -65,7 +65,7 @@ class Meal {
 
   customers() {
     let c = this.deliveries().map( delivery => delivery.customer());
-    return new Set(c)
+    return [...new Set(c)]
   }
   static byPrice() {
     return store.meals.sort ( function (a,b) {
