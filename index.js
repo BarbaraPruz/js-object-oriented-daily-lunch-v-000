@@ -65,7 +65,7 @@ class Meal {
 
   customers() {
     let c = this.deliveries().map( delivery => delivery.customer());
-    return arrayRemoveDuplicates(c);
+    return new Set(c)
   }
   static byPrice() {
     return store.meals.sort ( function (a,b) {
